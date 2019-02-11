@@ -204,25 +204,25 @@ void tempTask()
   int yGyro = data[2] * 256 + data[3];
   int zGyro = data[4] * 256 + data[5];
   
-  float gyroX = xGyro/32.8;
-  float gyroY = yGyro/32.8;
-  float gyroZ = zGyro/32.8;
+  float gyroX = xGyro/131;
+  float gyroY = yGyro/131;
+  float gyroZ = zGyro/131;
 
 // Manipulate the Gyro data
 
-  if(gyroX>1000){
+  if(xGyro>1000){
 
-    gyroX -=2000;
+    xGyro -=2000;
     
     }
-  if(gyroY>1000){
+  if(yGyro>1000){
 
-    gyroY -=2000;
+    yGyro -=2000;
     
     }
-    if(gyroZ>1000){
+    if(zGyro>1000){
 
-    gyroZ -=2000;
+    zGyro -=2000;
     
     }
   float acclX = xAccl/4096;
@@ -255,9 +255,9 @@ void tempTask()
   if( yaw3 < 0 ) 
   yaw3 += 180.0;
   
-  yaw3 = (gyroZ*180)/(131*PI);
-  yaw2 = (gyroY*180)/(131*PI);
-  yaw1 = (gyroX*180)/(131*PI);
+  yaw3 = (gyroZ*180)/PI;
+  yaw2 = (gyroY*180)/PI;
+  yaw1 = (gyroX*180)/PI;
   
   
   Xtopic = acclX;
