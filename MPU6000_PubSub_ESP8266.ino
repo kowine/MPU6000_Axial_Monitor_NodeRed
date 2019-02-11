@@ -204,27 +204,27 @@ void tempTask()
   int yGyro = data[2] * 256 + data[3];
   int zGyro = data[4] * 256 + data[5];
   
-  float gyroX = xGyro/131;
-  float gyroY = yGyro/131;
-  float gyroZ = zGyro/131;
+  float gyroX = xGyro/262.2;
+  float gyroY = yGyro/262.2;
+  float gyroZ = zGyro/262.2;
 
 // Manipulate the Gyro data
+//  if(xGyro>1000){
+//
+//    xGyro -=2000;
+//    
+//    }
+//  if(yGyro>1000){
+//
+//    yGyro -=2000;
+//    
+//    }
+//    if(zGyro>1000){
+//
+//    zGyro -=2000;
+//    
+//    }
 
-  if(xGyro>1000){
-
-    xGyro -=2000;
-    
-    }
-  if(yGyro>1000){
-
-    yGyro -=2000;
-    
-    }
-    if(zGyro>1000){
-
-    zGyro -=2000;
-    
-    }
   float acclX = xAccl/4096;
   float acclY = yAccl/4096;
   float acclZ = zAccl/4096;
@@ -246,18 +246,18 @@ void tempTask()
 //  roll = 0.99 * (roll+ gyroX * dt) + 0.01 * rollangle; // Calculate the angle using a Complimentary filter
 //  pitch = 0.99 * (pitch + gyroY * dt) + 0.01 * pitchangle; 
   
-  if( yaw1 < 0 ) 
-  yaw1 += 180.0;
-
-  if( yaw2 < 0 ) 
-  yaw2 += 180.0;
-
-  if( yaw3 < 0 ) 
-  yaw3 += 180.0;
-  
-  yaw3 = (gyroZ*180)/PI;
-  yaw2 = (gyroY*180)/PI;
-  yaw1 = (gyroX*180)/PI;
+//  if( yaw1 < 0 ) 
+//  yaw1 += 180.0;
+//
+//  if( yaw2 < 0 ) 
+//  yaw2 += 180.0;
+//
+//  if( yaw3 < 0 ) 
+//  yaw3 += 180.0;
+//  
+  yaw3 = gyroZ;
+  yaw2 = gyroY;
+  yaw1 = gyroX;
   
   
   Xtopic = acclX;
