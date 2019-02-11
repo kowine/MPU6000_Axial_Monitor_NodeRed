@@ -6,8 +6,8 @@
 #define Addr 0x68
 
 //Wifi Credentials
-#define wifi_ssid "DcubeAirtel"
-#define wifi_password "D@Airtel190"
+#define wifi_ssid "ESSID"
+#define wifi_password "Password"
 
 //Define MQTT server and topics
 #define mqtt_server "iot.eclipse.org"
