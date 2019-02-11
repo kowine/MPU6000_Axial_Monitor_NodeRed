@@ -204,9 +204,9 @@ void tempTask()
   int yGyro = data[2] * 256 + data[3];
   int zGyro = data[4] * 256 + data[5];
   
-  float gyroX = xGyro/262.2;
-  float gyroY = yGyro/262.2;
-  float gyroZ = zGyro/262.2;
+  float gyroX = xGyro/16.4;
+  float gyroY = yGyro/16.4;
+  float gyroZ = zGyro/16.4;
 
   float acclX = xAccl/4096;
   float acclY = yAccl/4096;
@@ -230,9 +230,10 @@ void tempTask()
 //  pitch = 0.99 * (pitch + gyroY * dt) + 0.01 * pitchangle; 
   
 
-  yaw3 = gyroZ;
-  yaw2 = gyroY;
-  yaw1 = gyroX;
+ yaw3 = map(gyroZ, 0,4000, 0, 180);
+ yaw2 = map(gyroY, 0,4000, 0, 180);
+ yaw1 = map(gyroX, 0,4000, 0, 180);
+    
   
   
   Xtopic = acclX;
